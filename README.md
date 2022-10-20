@@ -1,0 +1,1 @@
+# Tech Blog Using Sequelize, Express and MVC protacall. 
