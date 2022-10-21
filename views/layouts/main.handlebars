@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tales for the Loop</title>
+    <!-- add CSS -->
+  </head>
+  <body>
+    <div class="flex-column jsutify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+        <hi>Tales from the Loop</hi>
+        <nav>
+            {{!-- this is the conditional log in --}}
+          {{#if logged_in}}
+            <a href="/dashboard">DashBoard</a>
+            <button class="no-button" id="logout">LogOut</button>
+          {{else}}
+            <a href="/login">LogIn</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main class="container container-fluid mt-5">
+        {{{body}}}
+      </main>
+      <footer>
+
+      </footer>
+    </div>
+    {{#if logged_in}}
+      <script src="/public/javascript/logout.js"></script>
+    {{/if}}
+  </body>
+</html>
