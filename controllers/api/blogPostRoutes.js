@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 router.post('/', withAuth, async (req, res) => {
     try {
         const newBlogPost = await BlogPost.create({
-            name: names.req.body,
+            name: post_name.req.body,
             blog_body: blog_body.req.body,
             date_created: date_created.req.body,
             // I am sure this will check to make sure the user is a logged in user. 

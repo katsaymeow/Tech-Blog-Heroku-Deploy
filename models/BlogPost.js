@@ -12,7 +12,7 @@ BlogPost.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        names: {// name of blog post
+        post_name: {// name of blog post
             type: Datatypes.STRING,
             allowNull: false,
         },
