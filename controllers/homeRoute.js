@@ -40,7 +40,7 @@ router.get('/blogPost/:id', async (res, req) => {
         const allPost = allBlogPost.get({ plain: true });
 
         res.render('dashboard', {
-            ...allPosts,
+            ...allPost,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -70,7 +70,13 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
-// need to redirect user if logged in.
-
+// redirect user if logged in.
+router.get('login', (res, req) => {
+    if (req.sesion.logged_in) {
+        res.redirect('profile');
+        return;
+    }
+    res.render('login');
+});
 
 module.exports = router;

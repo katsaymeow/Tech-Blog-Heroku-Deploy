@@ -9,3 +9,5 @@ router.use('/', homeRoute);
 router.use('/', apiRoute);
 
 module.exports = router;
+
+// I am not sure I have connected the routes correctly here.

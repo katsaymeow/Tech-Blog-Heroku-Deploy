@@ -1,7 +1,7 @@
 const sequelize = require('../Config/connection');
 // const models require
 const { User, BlogPost } = require('../models');
-// const data seeds from json files in the seeds folder that takes and store the users blog post
+// json files in the seeds folder that takes and store the users blog post
 const userData = require('./userData.json');
 const blogData = require('./blogData.json');
 
