@@ -3,8 +3,8 @@ require('dotenv').config();
 
 let sequelize;
 
-if (process.env.db) {
-    sequelize = new Sequelize(process.env.db);// think db needs to be database specific. 
+if (process.env.JAWSDB_URL) {
+    sequelize = new Sequelize(process.env.JAWSDB_URL);// think db needs to be database specific. 
 } else {
     sequelize = new Sequelize (
         process.env.DB_NAME,
@@ -13,7 +13,7 @@ if (process.env.db) {
         {
             host: 'localhost',
             dialect: 'mysql',
-            port: 3001
+            port: 3306
         }
     );
 }

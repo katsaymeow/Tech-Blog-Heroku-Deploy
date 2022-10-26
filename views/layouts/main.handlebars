@@ -6,16 +6,16 @@
     <!-- add CSS -->
   </head>
   <body>
-    <div class="flex-column jsutify-space-around">
+    <div class="flex-column justify-space-around">
       <header class="display-flex justify-space-between align-center p-2">
         <hi>Tales from the Loop</hi>
         <nav>
             {{!-- this is the conditional log in --}}
           {{#if logged_in}}
-            <a href="/public/javascript/dashboard.js">DashBoard</a>
+            <a href="/profile">DashBoard</a>
             <button class="no-button" id="logout">LogOut</button>
           {{else}}
-            <a href="/public/javascript/login.js">LogIn</a>
+            <a href="/login">LogIn</a>
           {{/if}}
         </nav>
       </header>

@@ -7,7 +7,7 @@ const loginFormInfo = async (event) => {
 
     //sends post request to API
     if (email && password) {
-        const response = await fetch('/api/user/login', {
+        const response = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ email, password}),
             headers: { 'Content-Type': 'application/json'},
@@ -23,12 +23,12 @@ const loginFormInfo = async (event) => {
 const newSignupForm = async (event) => {
     event.preventDefault();
 
-    const userName = documnet.querySelector('#user-name-signup').value.trim();
+    const userName = document.querySelector('#user-name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
     if (userName && email && password) {
-        const response = await fetch('/api/user', {
+        const response = await fetch('/api', {
             method: 'POST',
             body: JSON.stringify({ userName, email, password}),
             headers: { 'Content-Type': 'application/json'},
@@ -44,4 +44,4 @@ const newSignupForm = async (event) => {
 
 document.querySelector('.login-form').addEventListener('submit', loginFormInfo);
 
-document.quertSelector('.signup-form').addEventListener('submit', newSignupForm);
+document.querySelector('.signup-form').addEventListener('submit', newSignupForm);

@@ -11,23 +11,24 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['names'],
+                    attributes: ['name'],
                 },
             ],
         });
         // serialize data for template
         const allPosts = allBlogPost.map((posts) => posts.get({ plain: true }));
-
-        res.render('dashboard', {
-            ...posts,
+console.log(allPosts);
+        res.render('homepage', {
+            allPosts,
             logged_in: req.session.logged_in
         });
     } catch(err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
 
-router.get('/blogPost/:id', async (res, req) => {
+router.get('/blogPost/:id', async (req, res) => {
     try {
         const allBlogPost = await BlogPost.findByPk(req.params.id, {
             include: [
@@ -39,8 +40,8 @@ router.get('/blogPost/:id', async (res, req) => {
         });
         const allPost = allBlogPost.get({ plain: true });
 
-        res.render('dashboard', {
-            ...allPost,
+        res.render('blogPost', {
+            allPost,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -71,9 +72,9 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 // redirect user if logged in.
-router.get('login', (res, req) => {
-    if (req.sesion.logged_in) {
-        res.redirect('profile');
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/profile');
         return;
     }
     res.render('login');
