@@ -7,7 +7,7 @@ const blogData = require('./blogData.json');
 
 const seedTechDB = async () => {
     await sequelize.sync({ force: true });
-    // initalizing the hooks with sequelize
+    // initializing the hooks with sequelize
     const userD = await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true,

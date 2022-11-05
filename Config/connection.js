@@ -1,10 +1,11 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
+console.log(process.env.DB_PASSWORD);
 
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
-    sequelize = new Sequelize(process.env.JAWSDB_URL);// think db needs to be database specific. 
+    sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
     sequelize = new Sequelize (
         process.env.DB_NAME,
