@@ -1,21 +1,24 @@
 const newPost = async (event) => {
     event.preventDefault();
 
-    const newPostName = document.querySelector('#post-name').value.trim();
-    const newBlogBody = document.querySelector('#blog-body').value.trim();
+    const post_name = document.querySelector('#post-name').value.trim();
+    const blog_body = document.querySelector('#blog-body').value.trim();
     //need a const for User if logged in??
 
-    if ( newPostName && newBlogBody) {
+    if ( post_name && blog_body) {
         const response = await fetch('/api/blogpost', {
             method: 'POST',
-            body: JSON.stringify({ newPostName, newBlogBody}),
+            body: JSON.stringify({ post_name, blog_body}),
             headers: {
                 'Content-Type': 'application/json'
             },
         });
 
         if (response.ok) {
-            document.location.replace('/blogpost');
+            console.log(response);
+            let data = await response.json();
+            console.log(data);
+            document.location.replace(`/blogpost/${data.id}`);
         } else {
             alert('Sorry, that did not happen as we thought.');
         }
@@ -37,5 +40,5 @@ const deleteBlogPost = async (event) => {
     }
 };
 
-document.querySelector('new-post-form').addEventListener('submit', newPost);
-document.querySelector('#post-list').addEventListener('click', deleteBlogPost);
+document.querySelector('.new-post-form').addEventListener('submit', newPost);
+document.querySelector('.post-list').addEventListener('click', deleteBlogPost);

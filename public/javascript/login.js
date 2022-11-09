@@ -7,7 +7,7 @@ const loginFormInfo = async (event) => {
 
   //sends post request to API
   if (email && password) {
-    const response = await fetch("/api/user/login", {
+    const response = await fetch("/api/users/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
@@ -20,7 +20,7 @@ const loginFormInfo = async (event) => {
     }
   }
 };
-loginFormInfo();
+// loginFormInfo();
 const newSignupForm = async (event) => {
   event.preventDefault();
 
@@ -31,7 +31,7 @@ console.log(name);
 console.log(email);
 console.log(password);
   if (name && email && password) {
-    const response = await fetch("/user", {
+    const response = await fetch("/users", {
       method: "POST",
       body: JSON.stringify({ 
         name,
@@ -47,7 +47,7 @@ console.log(password);
     }
   }
 };
-newSignupForm();
+// newSignupForm();
 document.querySelector(".login-form").addEventListener("submit", loginFormInfo);
 
 document.querySelector(".signup-form").addEventListener("submit", newSignupForm);

@@ -28,13 +28,13 @@ console.log(allPosts);
     }
 });
 
-router.get('/blogPost/:id', async (req, res) => {
+router.get('/blogpost/:id', async (req, res) => {
     try {
         const allBlogPost = await BlogPost.findByPk(req.params.id, {
             include: [
                 {
                     model: User,
-                    attributes: ['names'],
+                    attributes: ['name'],
                 },
             ],
         });
